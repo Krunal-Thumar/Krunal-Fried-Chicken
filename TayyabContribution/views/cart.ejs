@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Krunal Fried Chicken</title>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <%- include('navbar', { cartQuantityMap: cartQuantityMap }) %>
+
+        <div class="cart-container">
+            <h1>Your Cart</h1>
+            <% if (cart.length===0) { %>
+                <p>Your cart is empty.</p>
+                <% } else { %>
+                    <div class="cart-items">
+                        <% cart.forEach(item=> { %>
+                            <div class="cart-item">
+                                <div class="item-info">
+                                    <span class="item-name">
+                                        <%= item.name %>
+                                    </span>
+                                    <span class="item-price">AED <%= item.price %></span>
+                                </div>
+                                <div class="item-quantity-total">
+                                    <span class="item-quantity">Qty: <%= item.quantity %></span>
+                                    <span class="item-total">= AED <%= item.price * item.quantity %></span>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <p class="total">Total: AED <%= total %>
+                    </p>
+                    <form action="/checkout" method="POST">
+                        <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+                    </form>
+                    <% } %>
+                        <a href="/" class="back-link">Back to Menu</a>
+        </div>
+</body>
+
+</html>
