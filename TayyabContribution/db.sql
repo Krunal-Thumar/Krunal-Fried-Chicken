@@ -30,9 +30,12 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table krunal_fried_chicken_db.addresses: ~0 rows (approximately)
+-- Dumping data for table krunal_fried_chicken_db.addresses: ~1 rows (approximately)
+DELETE FROM `addresses`;
+INSERT INTO `addresses` (`id`, `user_id`, `address`, `city`, `country`, `zip_code`) VALUES
+	(1, 1, 'Dubai', 'DSO', NULL, NULL);
 
 -- Dumping structure for table krunal_fried_chicken_db.orders
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -52,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table krunal_fried_chicken_db.orders: ~0 rows (approximately)
+DELETE FROM `orders`;
 
 -- Dumping structure for table krunal_fried_chicken_db.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -63,12 +67,13 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table krunal_fried_chicken_db.products: ~5 rows (approximately)
+DELETE FROM `products`;
 INSERT INTO `products` (`id`, `name`, `price`, `image_url`) VALUES
-	(1, 'Fried Chicken Bucket', 15.00, "https://media.istockphoto.com/id/1396896459/photo/chicken-fried-bugket-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=hW6_BeRY93n3-I94ZjqWCesTct0ZTdGtzvSh_IPHLyE="),
-	(2, 'Spicy Wings', 10.00, "https://www.thespicehouse.com/cdn/shop/articles/Insane_Hot_Wings_720x.jpg?v=1588270427"),
-	(3, 'Chicken Sandwich', 8.00, "https://static01.nyt.com/images/2021/07/06/dining/yk-muhammara-chicken-sandwiches/merlin_189026502_58171dd4-b0bc-47c3-aa6a-d910a3f1de4c-superJumbo.jpg"),
-	(4, 'French Fries', 5.00, "https://upload.wikimedia.org/wikipedia/commons/8/83/French_Fries.JPG"),
-	(5, 'Chicken Tenders', 7.00, "https://www.allrecipes.com/thmb/YwJvX75IUx8uQ7PKz2eTDjCoLvY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16669-fried-chicken-tenders-DDMFS-4x3-219f03b885be40139c8d93bef21d0a50.jpg");
+	(1, 'Fried Chicken Bucket', 15.00, 'https://media.istockphoto.com/id/1396896459/photo/chicken-fried-bugket-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=hW6_BeRY93n3-I94ZjqWCesTct0ZTdGtzvSh_IPHLyE='),
+	(2, 'Spicy Wings', 10.00, 'https://www.thespicehouse.com/cdn/shop/articles/Insane_Hot_Wings_720x.jpg?v=1588270427'),
+	(3, 'Chicken Sandwich', 8.00, 'https://static01.nyt.com/images/2021/07/06/dining/yk-muhammara-chicken-sandwiches/merlin_189026502_58171dd4-b0bc-47c3-aa6a-d910a3f1de4c-superJumbo.jpg'),
+	(4, 'French Fries', 5.00, 'https://upload.wikimedia.org/wikipedia/commons/8/83/French_Fries.JPG'),
+	(5, 'Chicken Tenders', 7.00, 'https://www.allrecipes.com/thmb/YwJvX75IUx8uQ7PKz2eTDjCoLvY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16669-fried-chicken-tenders-DDMFS-4x3-219f03b885be40139c8d93bef21d0a50.jpg');
 
 -- Dumping structure for table krunal_fried_chicken_db.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -79,15 +84,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table krunal_fried_chicken_db.users: ~8 rows (approximately)
+-- Dumping data for table krunal_fried_chicken_db.users: ~5 rows (approximately)
+DELETE FROM `users`;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES
-	(1, 'Omar', null, 'omar@kfc.com', '$2b$10$1VWH.TChNm0whWEXzKTZmuXO8btqKzt2fdRVvARC5Zp/woq.LK/GW'),
-	(2, 'Khalifa', null, 'khalifa@KFC.com', '$2b$10$WZ3MVLeg0J2ZviLjOyssz.8GgORHGjll2N7tUrnRPml0.DYLcX7Xq'),
-	(3, 'Krunal', null, 'krunal@KFC.com', '$2b$10$zcB6uYEHjL48FLDPg5QpQOn9nKt/G5XsItb0NAmyImZvFyyNUfkuy'),
-	(4, 'Tayyab', null, 'tayyab@KFC.com', '$2b$10$ISCmUb0/YL4/QpWr0JfNBus/LbiPolTUr2iGyvNVSiWKQPPBriB8C'),
-	(5, 'Admin', null, 'admin@KFC.com', '$2b$10$skoHUfmJA.4om.uNYHYyh.8tCltLFom2oGQt.5/CqeP3D3Qv93aRS');
+	(1, 'Omar', 'Jammoul', 'omar@kfc.com', '$2b$10$1VWH.TChNm0whWEXzKTZmuXO8btqKzt2fdRVvARC5Zp/woq.LK/GW'),
+	(2, 'Khalifa', NULL, 'khalifa@KFC.com', '$2b$10$WZ3MVLeg0J2ZviLjOyssz.8GgORHGjll2N7tUrnRPml0.DYLcX7Xq'),
+	(3, 'Krunal', NULL, 'krunal@KFC.com', '$2b$10$zcB6uYEHjL48FLDPg5QpQOn9nKt/G5XsItb0NAmyImZvFyyNUfkuy'),
+	(4, 'Tayyab', NULL, 'tayyab@KFC.com', '$2b$10$ISCmUb0/YL4/QpWr0JfNBus/LbiPolTUr2iGyvNVSiWKQPPBriB8C'),
+	(5, 'Admin', NULL, 'admin@KFC.com', '$2b$10$skoHUfmJA.4om.uNYHYyh.8tCltLFom2oGQt.5/CqeP3D3Qv93aRS');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
