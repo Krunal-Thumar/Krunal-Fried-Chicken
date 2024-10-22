@@ -1,22 +1,50 @@
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="navbar-logo">
-        <a href="/" style="text-decoration: none; color: white;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/profile.css">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
             <h1>Krunal Fried Chicken</h1>
-        </a>
+        </div>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/cart">Cart</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="logout-link">Logout</a>
+        </div>
     </div>
-    <div class="navbar-links">
-        <a href="/cart" class="cart-link">
-            <img src="/assets/images/shopping-cart.png" class="cart-icon" alt="Cart Icon" />
-            <% if (cartQuantityMap && Object.keys(cartQuantityMap).length> 0) { %>
-                <span class="cart-bubble">
-                    <%= Object.keys(cartQuantityMap).length %>
-                </span>
-                <% } else { %>
-                    <span class="cart-bubble">0</span>
-                    <% } %>
-        </a>
-        <a href="/profile" class="profile-link">Profile</a>
-        <a href="/logout" class="logout-link">Logout</a>
+    
+    <div class="profile-container">
+        <div class="profile-box">
+            <h1>User Profile</h1>
+            <div class="profile-details">
+                <h2>Personal Information</h2>
+                <form id="profile-form" action="/update-profile" method="POST">
+                    <p><strong>First Name:</strong> 
+                        <input type="text" name="firstName" value="<%= user.first_name %>" required>
+                    </p>
+                    <p><strong>Last Name:</strong> 
+                        <input type="text" name="lastName" value="<%= user.last_name %>" required>
+                    </p>
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                    
+                    <h2>Address</h2>
+                    <p><strong>Address:</strong> 
+                        <input type="text" name="address" value="<%= user.address || 'No address provided' %>" required>
+                    </p>
+                    <p><strong>City:</strong> 
+                        <input type="text" name="city" value="<%= user.city || 'No city provided' %>" required>
+                    </p>
+                    <button type="submit" class="update-btn">Update Profile</button>
+                </form>
+            </div>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
     </div>
-</nav>
+</body>
+</html>
