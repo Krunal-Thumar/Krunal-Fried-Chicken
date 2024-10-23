@@ -30,9 +30,12 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table krunal_fried_chicken_db.addresses: ~0 rows (approximately)
+DELETE FROM `addresses`;
+INSERT INTO `addresses` (`id`, `user_id`, `address`, `city`, `country`, `zip_code`) VALUES
+  (1, 1, 'Dubai', 'DSO', NULL, NULL);
 
 -- Dumping structure for table krunal_fried_chicken_db.orders
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -52,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table krunal_fried_chicken_db.orders: ~0 rows (approximately)
+DELETE FROM `orders`;
 
 -- Dumping structure for table krunal_fried_chicken_db.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -62,47 +66,14 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table krunal_fried_chicken_db.products
+-- Dumping data for table krunal_fried_chicken_db.products: ~5 rows (approximately)
+DELETE FROM `products`;
 INSERT INTO `products` (`id`, `name`, `price`, `image_url`) VALUES
-(1, 'Loaded Twister Spicy', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115008.png'),
-(2, 'Loaded Twister Original', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115009.png'),
-(3, 'Veggie Zinger', 9.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/110037.png'),
-(4, 'Kentucky Sandwich - Spicy', 3.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/egy/desktop/imagestemp/110061.png'),
-(5, 'Zinger Sandwich', 18.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/972-Combo.png'),
-(6, 'Fillet Supreme', 20.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/110008.png'),
-(7, 'Dynamite Cruncher', 9.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/110058.png'),
-(8, 'Pepper Mayo Cruncher', 9.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/110060.png'),
-(9, 'Onion Rings', 11.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/5000461.png'),
-(10, 'Twister Box', 31.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/23-Combo.png'),
-(11, 'Zinger Box', 41.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/29-Combo.png'),
-(12, 'Dynamite Wings', 26.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/221-Combo.png'),
-(13, 'Wings Meal', 26.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/223-Combo.png'),
-(14, 'Twister Max Combo', 32.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/bhr/desktop/imagestemp/149-Combo.png'),
-(15, 'Big Filler Box', 39.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/qat/desktop/imagestemp/472-Combo.png'),
-(16, 'Mix Mania', 78.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/642-Combo.png'),
-(17, 'Big Filler Jalapeno Combo', 32.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/qat/desktop/imagestemp/454-Combo.png'),
-(18, 'Spicy Fries', 11.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/5000082.png'),
-(19, '3 Pcs Hot Lime Wings', 9.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/510101.png'),
-(20, 'My Dipping Bucket', 88.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/430-Combo.png'),
-(21, 'Regular Loaded Fries Pepper Chili', 4.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/510079.png'),
-(22, 'Harissa Sauce', 2.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/810037.png'),
-(23, 'Dynamite Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/810028.png'),
-(24, 'Cheetos Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/810061.png'),
-(25, 'BBQ Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/810042.png'),
-(26, 'Cheddar Sauce', 2.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/813002.png'),
-(27, 'Colonel Signature Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/810040.png'),
-(28, 'Garlic Buttermilk Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/810041.png'),
-(29, 'Sweet Chili Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/816003.png'),
-(30, 'Kentucky Ranch Sauce', 2.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/810040.png'),
-(31, 'Mojito Krushers', 8.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/610021.png'),
-(32, 'Magic Mojito', 8.50, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/omn/desktop/imagestemp/610013.png'),
-(33, 'Small Water', 3.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/bhr/desktop/imagestemp/618012.png'),
-(34, 'Orange Juice', 6.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/jor/desktop/imagestemp/100012.png'),
-(35, 'Dipper Fries', 11.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/213.png'),
-(36, 'Hot Lime Wings Combo', 33.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/810040.png'),
-(37, 'Rice', 22.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/jor/desktop/imagestemp/510025.png'),
-(38, 'Cookie', 3.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/egy/desktop/imagestemp/710003.png'),
-(39, 'Bun', 1.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/810002.png');
+	(1, 'Fried Chicken Bucket', 15.00, 'https://media.istockphoto.com/id/1396896459/photo/chicken-fried-bugket-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=hW6_BeRY93n3-I94ZjqWCesTct0ZTdGtzvSh_IPHLyE='),
+	(2, 'Spicy Wings', 10.00, 'https://www.thespicehouse.com/cdn/shop/articles/Insane_Hot_Wings_720x.jpg?v=1588270427'),
+	(3, 'Chicken Sandwich', 8.00, 'https://static01.nyt.com/images/2021/07/06/dining/yk-muhammara-chicken-sandwiches/merlin_189026502_58171dd4-b0bc-47c3-aa6a-d910a3f1de4c-superJumbo.jpg'),
+	(4, 'French Fries', 5.00, 'https://upload.wikimedia.org/wikipedia/commons/8/83/French_Fries.JPG'),
+	(5, 'Chicken Tenders', 7.00, 'https://www.allrecipes.com/thmb/YwJvX75IUx8uQ7PKz2eTDjCoLvY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16669-fried-chicken-tenders-DDMFS-4x3-219f03b885be40139c8d93bef21d0a50.jpg');
 
 -- Dumping structure for table krunal_fried_chicken_db.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -113,11 +84,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table krunal_fried_chicken_db.users: ~8 rows (approximately)
+-- Dumping data for table krunal_fried_chicken_db.users: ~5 rows (approximately)
+DELETE FROM `users`;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES
-	(1, 'Omar', null, 'omar@kfc.com', '$2b$10$1VWH.TChNm0whWEXzKTZmuXO8btqKzt2fdRVvARC5Zp/woq.LK/GW'),
+	(1, 'Omar', Jammoul, 'omar@kfc.com', '$2b$10$1VWH.TChNm0whWEXzKTZmuXO8btqKzt2fdRVvARC5Zp/woq.LK/GW'),
 	(2, 'Khalifa', null, 'khalifa@KFC.com', '$2b$10$WZ3MVLeg0J2ZviLjOyssz.8GgORHGjll2N7tUrnRPml0.DYLcX7Xq'),
 	(3, 'Krunal', null, 'krunal@KFC.com', '$2b$10$zcB6uYEHjL48FLDPg5QpQOn9nKt/G5XsItb0NAmyImZvFyyNUfkuy'),
 	(4, 'Tayyab', null, 'tayyab@KFC.com', '$2b$10$ISCmUb0/YL4/QpWr0JfNBus/LbiPolTUr2iGyvNVSiWKQPPBriB8C'),

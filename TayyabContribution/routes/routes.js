@@ -171,28 +171,85 @@ module.exports = (db) => {
 		});
 	});
 
-	router.get("/profile", isAuthenticated, (req, res) => {
-		const cart = req.session.cart || [];
-		const cartQuantityMap = cart.reduce((acc, item) => {
-			acc[item.id] = item.quantity;
-			return acc;
-		}, {});
 
+	// Profile route
+	router.get("/profile", isAuthenticated, (req, res) => {
 		const userId = req.session.userId;
-		const query = "SELECT * FROM users WHERE id = ?";
-		db.query(query, [userId], (err, results) => {
+
+		const userQuery = `
+			SELECT users.first_name, users.last_name, users.email, addresses.address, addresses.city 
+			FROM users 
+			LEFT JOIN addresses ON users.id = addresses.user_id 
+			WHERE users.id = ?`;
+
+		db.query(userQuery, [userId], (err, results) => {
 			if (err) {
-				console.error(err);
-				return res.send("An error occurred.");
+				console.error("Error retrieving user profile:", err);
+				return res.status(500).send("Error retrieving profile");
 			}
+
 			if (results.length > 0) {
 				const user = results[0];
-				res.render("profile", { user, cartQuantityMap });
+				res.render("profile", {
+					user,
+				});
 			} else {
-				res.send("User does not exist!");
+				res.status(404).send("User not found");
 			}
 		});
 	});
+
+	router.post("/update-profile", isAuthenticated, (req, res) => {
+		const { firstName, lastName, address, city } = req.body;
+		const userId = req.session.userId;
+	
+		const updateQuery = `
+			UPDATE users 
+			SET first_name = ?, last_name = ? 
+			WHERE id = ?`;
+	
+		const addressUpdateQuery = `
+			UPDATE addresses 
+			SET address = ?, city = ? 
+			WHERE user_id = ?`;
+	
+		// Update user information
+		db.query(updateQuery, [firstName, lastName, userId], (err, result) => {
+			if (err) {
+				console.error("Error updating user:", err);
+				return res.status(500).send("Error updating user profile.");
+			}
+	
+			// First try to update the address
+			db.query(addressUpdateQuery, [address, city, userId], (err, result) => {
+				if (err) {
+					console.error("Error updating address:", err);
+					return res.status(500).send("Error updating address.");
+				}
+	
+				// If no rows were affected, it means no address existed, so insert a new one
+				if (result.affectedRows === 0) {
+					const insertAddressQuery = `
+						INSERT INTO addresses (user_id, address, city) 
+						VALUES (?, ?, ?)`;
+	
+					db.query(insertAddressQuery, [userId, address, city], (err, result) => {
+						if (err) {
+							console.error("Error inserting address:", err);
+							return res.status(500).send("Error inserting address.");
+						}
+	
+						// Redirect back to the profile page after successful update
+						res.redirect("/profile");
+					});
+				} else {
+					// If the address was updated successfully, redirect
+					res.redirect("/profile");
+				}
+			});
+		});
+	});
+
 
 	// Home route
 	router.get("/", isAuthenticated, (req, res) => {
