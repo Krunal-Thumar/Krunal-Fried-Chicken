@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table krunal_fried_chicken_db.products: ~5 rows (approximately)
+-- Dumping data for table krunal_fried_chicken_db.products
 INSERT INTO `products` (`id`, `name`, `price`, `image_url`) VALUES
 (1, 'Loaded Twister Spicy', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115008.png'),
 (2, 'Loaded Twister Original', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115009.png'),
