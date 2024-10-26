@@ -1,0 +1,132 @@
+/* General Theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Checkout Container */
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Checkout Box */
+.checkout-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.checkout-box h1 {
+    color: #2d3e50;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Cart Summary */
+.cart-summary {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.cart-summary h2 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cart-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-summary li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-summary li strong {
+    color: #2d3e50;
+}
+
+.cart-summary hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.cart-summary h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Payment Options */
+.payment-options {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.payment-options h2 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Payment Buttons */
+.payment-options .btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-options .btn:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .checkout-box {
+        padding: 20px;
+    }
+
+    .payment-options .btn {
+        font-size: 1rem;
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Disabled Button */
+.btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #888;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Card Information</title>
+    <link rel="stylesheet" href="/css/card.css">
+</head>
+
+<body>
+
+    <div class="payment-container">
+        <div class="payment-box">
+            <h1>Payment Information</h1>
+            <form action="/pay/card/submit" method="POST">
+                <div class="input-group">
+                    <label for="cardholder-name">Cardholder Name</label>
+                    <input type="text" id="cardholder-name" name="cardholderName"
+                        value="<%= cardInfo ? cardInfo.cardholder_name : '' %>" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="cardNumber"
+                        value="<%= cardInfo ? cardInfo.card_number : '' %>" required maxlength="19">
+                </div>
+
+                <div class="input-group">
+                    <label for="expiry-date">Expiration Date (MM/YY)</label>
+                    <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY"
+                        value="<%= cardInfo ? cardInfo.expiry_date : '' %>" required maxlength="5">
+                </div>
+
+                <div class="input-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" required value="<%= cardInfo ? cardInfo.cvv : '' %>"
+                        maxlength="4">
+                </div>
+
+                <button type="submit" class="btn">Submit Payment</button>
+            </form>
+            <a href="/checkout" class="btn-secondary">Back to Checkout</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Krunal Fried Chicken</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h1>Create an Account<br>Krunal Fried Chicken</h1>
+            <form action="/signup" method="POST">
+                <div class="input-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="/login">Log in here</a>.</p>
+
+            <% if (error) { %>
+                <div class="error-message">
+                    <%= error %>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

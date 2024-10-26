@@ -1,0 +1,118 @@
+/* General Theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center elements horizontally */
+    justify-content: center;
+    /* Center elements vertically */
+    height: 100vh;
+    /* Full height of viewport */
+}
+
+/* Payment Container */
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Payment Box */
+.payment-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* Full width for smaller screens */
+    max-width: 400px;
+    /* Maximum width for larger screens */
+    text-align: center;
+    margin: 20px;
+    /* Add margin for spacing */
+}
+
+.payment-box h1 {
+    color: #2d3e50;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    /* Adjust font size */
+    font-weight: 600;
+}
+
+/* Payment Button */
+.btn {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #2d3e50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #1a242f;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #2d3e50;
+    outline: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d3e50;
+    color: #ffffff;
+    margin-top: 50px;
+}

@@ -1,0 +1,22 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="/" style="text-decoration: none; color: white;">
+            <h1>Krunal Fried Chicken</h1>
+        </a>
+    </div>
+    <div class="navbar-links">
+        <a href="/cart" class="cart-link">
+            <img src="/assets/images/shopping-cart.png" class="cart-icon" alt="Cart Icon" />
+            <% if (cartQuantityMap && Object.keys(cartQuantityMap).length> 0) { %>
+                <span class="cart-bubble">
+                    <%= Object.keys(cartQuantityMap).length %>
+                </span>
+                <% } else { %>
+                    <span class="cart-bubble">0</span>
+                    <% } %>
+        </a>
+        <a href="/profile?userId=<%= userId %>" class="profile-link">Profile</a>
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</nav>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+
+<body>
+    <div class="checkout-container">
+        <div class="checkout-box">
+            <h1>Checkout</h1>
+
+            <!-- Address Details -->
+            <div class="address-section">
+                <h2>Delivery Address</h2>
+                <% if (address) { %>
+                    <p><strong>Address:</strong>
+                        <%= address.address %>
+                    </p>
+                    <p><strong>City:</strong>
+                        <%= address.city %>
+                    </p>
+                    <% } else { %>
+                        <p style="color: red;">No address found. Please add your delivery address.</p>
+                        <% } %>
+                            <a href="/profile" class="btn-secondary">Add or Change Address</a>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h2>Your Cart</h2>
+                <ul>
+                    <% cart.forEach(item=> { %>
+                        <li>
+                            <span><strong>
+                                    <%= item.name %>
+                                </strong> - $<%= item.price %> x <%= item.quantity %></span>
+                            <span>$<%= (item.price * item.quantity) %></span>
+                        </li>
+                        <% }); %>
+                </ul>
+                <hr>
+                <h3>Total: $<%= total %>
+                </h3>
+            </div>
+
+            <!-- Payment Options -->
+            <div class="payment-options">
+                <% if (address) { %>
+                    <!-- Enable buttons if address is set -->
+                    <form action="/pay/card" method="POST">
+                        <button type="submit" class="btn">Pay with Card</button>
+                    </form>
+                    <form action="/pay/cash" method="POST">
+                        <button type="submit" class="btn">Pay with Cash</button>
+                    </form>
+                    <% } else { %>
+                        <!-- Disable buttons if no address -->
+                        <button class="btn disabled" disabled>Pay with Card</button>
+                        <button class="btn disabled" disabled>Pay with Cash</button>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
