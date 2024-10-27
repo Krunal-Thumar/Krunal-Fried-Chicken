@@ -135,7 +135,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table krunal_fried_chicken_db.users: ~5 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES
-	(1, 'admin', null, 'admin@kfc.com', '21232f297a57a5a743894a0e4a801fc3');
+	(1, 'admin', null, 'admin@kfc.com', '21232f297a57a5a743894a0e4a801fc3'),
+	(12, 'Kevser', 'Akpinar', 'kevser@kfc.com', '438614e3a396e733a1ef9da55b34ddac');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
