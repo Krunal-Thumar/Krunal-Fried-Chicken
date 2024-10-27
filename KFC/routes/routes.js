@@ -292,7 +292,7 @@ module.exports = (db) => {
 			const cart = req.session.cart || [];
 			const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-			res.render("checkout", { cart, total, address });
+			res.render("checkout", { cart, total, address, userId });
 		});
 	});
 
