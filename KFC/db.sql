@@ -81,7 +81,6 @@ CREATE TABLE cards (
 -- Dumping data for table krunal_fried_chicken_db.products:
 DELETE FROM `products`;
 INSERT INTO `products` (`id`, `name`, `price`, `image_url`) VALUES
-INSERT INTO products(id, NAME, price,  image_url) VALUES 
 (1, 'Loaded Twister Spicy', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115008.png'),
 (2, 'Loaded Twister Original', 12.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/115009.png'),
 (3, 'Veggie Zinger', 9.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/uae/desktop/imagestemp/110037.png'),
