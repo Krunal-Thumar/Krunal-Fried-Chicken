@@ -116,7 +116,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `image_url`) VALUES
 (33, 'Small Water', 3.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/bhr/desktop/imagestemp/618012.png'),
 (34, 'Orange Juice', 6.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/jor/desktop/imagestemp/100012.png'),
 (35, 'Dipper Fries', 11.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/213.png'),
-(36, 'Hot Lime Wings Combo', 33.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/kwt/desktop/imagestemp/810040.png'),
+(36, 'Coleslaw', 7.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/21.png'),
 (37, 'Rice', 22.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/jor/desktop/imagestemp/510025.png'),
 (38, 'Cookie', 3.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/egy/desktop/imagestemp/710003.png'),
 (39, 'Bun', 1.00, 'https://kfcprodimages-ehcsdud6a5a5eqcm.z01.azurefd.net/cmsimages/kfc/ksa/desktop/imagestemp/810002.png');
