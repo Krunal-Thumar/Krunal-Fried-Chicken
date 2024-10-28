@@ -185,7 +185,7 @@ module.exports = (db) => {
 			if (results.length > 0) {
 				const user = results[0];
 				res.render("profile", {
-					user,
+					user, userId
 				});
 			} else {
 				res.status(404).send("User not found");
